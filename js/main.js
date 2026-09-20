@@ -109,6 +109,7 @@ function initIndex() {
       row.innerHTML = `
         <span class="table-cell">${p.code}</span>
         <span class="table-cell">${p.title}</span>
+        <span class="table-cell">${p.architect || '—'}</span>
         <span class="table-cell">${p.format}</span>
         <span class="table-cell">${p.location}</span>
         <span class="table-cell">${p.year}</span>`;
@@ -138,9 +139,9 @@ function initIndex() {
 
   /* ── View toggle ────────────────────────── */
   function bindViewToggle() {
-    document.getElementById('btn-images').addEventListener('click', () => { setView('images'); track('/#image'); });
-    document.getElementById('btn-table').addEventListener('click',  () => { setView('table');  track('/#text'); });
-    document.getElementById('btn-map').addEventListener('click',    () => { setView('map');    track('/#map'); });
+    document.getElementById('btn-images').addEventListener('click', () => { setView('images'); track('/#image'); if (window.gtag) gtag('event', 'view_changed', { view: 'gallery' }); });
+    document.getElementById('btn-table').addEventListener('click',  () => { setView('table');  track('/#text'); if (window.gtag) gtag('event', 'view_changed', { view: 'table' }); });
+    document.getElementById('btn-map').addEventListener('click',    () => { setView('map');    track('/#map'); if (window.gtag) gtag('event', 'view_changed', { view: 'map' }); });
     // Clicking "Projects" also clears and closes the filter
     const projLabel = document.querySelector('.nav-projects .nav-label');
     if (projLabel) projLabel.addEventListener('click', closeFilterIfOpen);
@@ -338,9 +339,13 @@ function initIndex() {
     if (idx === -1) {
       arr.push(value);
       btn.classList.add('active');
+      // GA4 event: filter applied
+      if (window.gtag) gtag('event', 'filter_applied', { filter_type: type, filter_value: value });
     } else {
       arr.splice(idx, 1);
       btn.classList.remove('active');
+      // GA4 event: filter removed
+      if (window.gtag) gtag('event', 'filter_removed', { filter_type: type, filter_value: value });
     }
     btn.setAttribute('aria-pressed', btn.classList.contains('active'));
     applyFilters();
@@ -426,6 +431,7 @@ function initProject() {
     return `
       <span class="table-cell">${p.code}</span>
       <span class="table-cell">${p.title}</span>
+      <span class="table-cell">${p.architect || '—'}</span>
       <span class="table-cell">${p.format}</span>
       <span class="table-cell">${p.location}</span>
       <span class="table-cell">${p.year}</span>`;
@@ -459,12 +465,23 @@ function initProject() {
   function loadProject(idx, startAtLast) {
     pIdx = (idx + projects.length) % projects.length;
     const p = projects[pIdx];
+    const projectUrl = `${window.location.origin}/project.html?slug=${p.slug}`;
+    const shareText = `${p.title} by ${p.architect || 'fre.flier'} — Architecture & Photography`;
+    
     document.title = `fre.flier — ${p.title}`;
     history.replaceState(null, '', `project.html?slug=${p.slug}${from ? `&from=${from}` : ''}`);
     if (!firstProject) track('/project/' + p.slug);
+    if (!firstProject && window.gtag) gtag('event', 'project_viewed', { project_name: p.title, architect: p.architect });
     firstProject = false;
     infoEl.innerHTML  = infoCells(p);
     introEl.innerHTML = infoCells(p);
+    
+    // Update share buttons
+    document.getElementById('share-twitter').href = `https://x.com/intent/post?url=${encodeURIComponent(projectUrl)}&text=${encodeURIComponent(shareText)}`;
+    document.getElementById('share-facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(projectUrl)}`;
+    document.getElementById('share-linkedin').href = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(projectUrl)}`;
+    document.getElementById('project-share').style.display = '';
+    
     // Close the description panel when switching projects;
     // hide the + entirely if the project has no description yet
     descEl.classList.remove('open');

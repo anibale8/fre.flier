@@ -11,7 +11,7 @@
   --pad-x: 12px;
   --pad-head: 12px;
   /* Shared column grid for nav, table and project info line */
-  --table-cols: 3.5rem 1.15fr 1.3fr 1.3fr 1fr;
+  --table-cols: 3.5rem 1.15fr 1.2fr 1.2fr 1.2fr 0.9fr;
   /* Mobile: all five columns, evenly separated */
   --table-cols-sm: 2.2rem 1fr 1fr 1fr 2.4rem;
   --font: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
@@ -115,8 +115,8 @@ a, button {
   margin-left: 8px;
 }
 
-.nav-map   { grid-column: 4; justify-self: start; }
-.nav-about { grid-column: 5; justify-self: start; }
+.nav-map   { grid-column: 5; justify-self: start; }
+.nav-about { grid-column: 6; justify-self: start; }
 
 /* Menu items keep one constant tone — no lighter resting state */
 .nav-link {
@@ -171,9 +171,9 @@ a, button {
   gap: var(--gap);
 }
 
-.fg-format   { grid-column: 3; grid-row: 1; }
-.fg-location { grid-column: 4; grid-row: 1; }
-.fg-year     { grid-column: 5; grid-row: 1; }
+.fg-format   { grid-column: 4; grid-row: 1; }
+.fg-location { grid-column: 5; grid-row: 1; }
+.fg-year     { grid-column: 6; grid-row: 1; }
 
 .filter-group-label {
   color: var(--gray);
@@ -524,6 +524,45 @@ body.intro-rise .project-info { opacity: 0; }
 
 /* Blank line between description paragraphs */
 .project-description p + p { margin-top: 1em; }
+
+/* Share buttons */
+.project-share {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: fixed;
+  bottom: 44px;
+  left: var(--pad-x);
+  z-index: 27;
+  font-size: 11px;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.share-label {
+  color: var(--gray);
+  margin-right: 4px;
+  font-weight: 400;
+}
+
+.project-share a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--black);
+  border-radius: 2px;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--black);
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.project-share a:hover {
+  background-color: var(--black);
+  color: var(--white);
+}
 
 /* ===== ABOUT PAGE ===== */
 .info-page {

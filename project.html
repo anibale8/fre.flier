@@ -11,7 +11,8 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>fre.flier</title>
+  <title>fre.flier — Project</title>
+  <meta name="description" content="Architecture and photography — Site visits 2018–2026" id="meta-description">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <meta property="og:title" content="fre.flier">
@@ -48,8 +49,37 @@
   </div>
   <div class="project-description" id="project-description"></div>
 
+  <!-- SHARE BUTTONS -->
+  <div class="project-share" id="project-share" style="display:none;">
+    <span class="share-label">Share</span>
+    <a id="share-twitter" href="#" target="_blank" rel="noopener noreferrer" title="Share on X">𝕏</a>
+    <a id="share-facebook" href="#" target="_blank" rel="noopener noreferrer" title="Share on Facebook">f</a>
+    <a id="share-linkedin" href="#" target="_blank" rel="noopener noreferrer" title="Share on LinkedIn">in</a>
+  </div>
+
   <script src="js/projects.js?v=58"></script>
   <script src="js/main.js?v=59"></script>
+  <script src="https://cdn.jsdelivr.net/npm/panzoom@9.4.0/dist/panzoom.min.js"></script>
+  <script>
+    // Zoom on project photos with mouse wheel and pinch
+    const photo = document.getElementById('project-photo');
+    if (photo) {
+      photo.style.cursor = 'grab';
+      const pz = Panzoom(photo, {
+        maxZoom: 4,
+        minZoom: 1,
+        contain: 'outside',
+        canvas: true
+      });
+      photo.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        pz.zoomWithWheel(e);
+      }, { passive: false });
+      // Reset zoom when changing photos
+      const observer = new MutationObserver(() => pz.reset());
+      observer.observe(photo, { attributes: true, attributeFilter: ['src'] });
+    }
+  </script>
   <script data-goatcounter="https://anibale88.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
