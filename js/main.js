@@ -476,7 +476,8 @@ function initProject() {
     
     // Update share buttons
     document.getElementById('share-whatsapp').href = `https://wa.me/?text=${encodeURIComponent(shareText + ' ' + projectUrl)}`;
-    document.getElementById('share-linkedin').href = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(projectUrl)}`;
+    document.getElementById('share-instagram').href = `https://www.instagram.com/direct/`;
+    document.getElementById('share-linkedin').href = `https://www.linkedin.com/feed/?title=${encodeURIComponent(p.title)}&summary=${encodeURIComponent(shareText)}&url=${encodeURIComponent(projectUrl)}&source=fre-flier`;
     document.getElementById('project-share').style.display = '';
     
     // Close the description panel when switching projects;
