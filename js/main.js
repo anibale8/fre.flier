@@ -109,7 +109,6 @@ function initIndex() {
       row.innerHTML = `
         <span class="table-cell">${p.code}</span>
         <span class="table-cell">${p.title}</span>
-        <span class="table-cell">${p.architect || '—'}</span>
         <span class="table-cell">${p.format}</span>
         <span class="table-cell">${p.location}</span>
         <span class="table-cell">${p.year}</span>`;

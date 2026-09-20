@@ -11,7 +11,7 @@
   --pad-x: 12px;
   --pad-head: 12px;
   /* Shared column grid for nav, table and project info line */
-  --table-cols: 3.5rem 1.15fr 1.2fr 1.2fr 1.2fr 0.9fr;
+  --table-cols: 3.5rem 1.15fr 1.3fr 1.3fr 1fr;
   /* Mobile: all five columns, evenly separated */
   --table-cols-sm: 2.2rem 1fr 1fr 1fr 2.4rem;
   --font: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
@@ -115,8 +115,8 @@ a, button {
   margin-left: 8px;
 }
 
-.nav-map   { grid-column: 5; justify-self: start; }
-.nav-about { grid-column: 6; justify-self: start; }
+.nav-map   { grid-column: 4; justify-self: start; }
+.nav-about { grid-column: 5; justify-self: start; }
 
 /* Menu items keep one constant tone — no lighter resting state */
 .nav-link {
@@ -171,9 +171,9 @@ a, button {
   gap: var(--gap);
 }
 
-.fg-format   { grid-column: 4; grid-row: 1; }
-.fg-location { grid-column: 5; grid-row: 1; }
-.fg-year     { grid-column: 6; grid-row: 1; }
+.fg-format   { grid-column: 3; grid-row: 1; }
+.fg-location { grid-column: 4; grid-row: 1; }
+.fg-year     { grid-column: 5; grid-row: 1; }
 
 .filter-group-label {
   color: var(--gray);
