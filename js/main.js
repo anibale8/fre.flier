@@ -463,9 +463,9 @@ function initProject() {
   function loadProject(idx, startAtLast) {
     pIdx = (idx + projects.length) % projects.length;
     const p = projects[pIdx];
-    const projectUrl = `${window.location.origin}/project.html?slug=${p.slug}`;
-    const shareText = `Check out ${p.title} on fre.flier`;
-    
+    // const projectUrl = `${window.location.origin}/project.html?slug=${p.slug}`;
+    // const shareText = `Check out ${p.title} on fre.flier`;
+
     document.title = `fre.flier — ${p.title}`;
     history.replaceState(null, '', `project.html?slug=${p.slug}${from ? `&from=${from}` : ''}`);
     if (!firstProject) track('/project/' + p.slug);
@@ -475,9 +475,9 @@ function initProject() {
     introEl.innerHTML = infoCells(p);
     
     // Update share buttons
-    document.getElementById('share-whatsapp').href = `https://wa.me/?text=${encodeURIComponent(shareText + ' ' + projectUrl)}`;
-    document.getElementById('share-linkedin').href = `https://www.linkedin.com/feed/?title=${encodeURIComponent(p.title)}&summary=${encodeURIComponent(shareText)}&url=${encodeURIComponent(projectUrl)}&source=fre-flier`;
-    document.getElementById('project-share').style.display = '';
+    // document.getElementById('share-whatsapp').href = `https://wa.me/?text=${encodeURIComponent(shareText + ' ' + projectUrl)}`;
+    // document.getElementById('share-linkedin').href = `https://www.linkedin.com/feed/?title=${encodeURIComponent(p.title)}&summary=${encodeURIComponent(shareText)}&url=${encodeURIComponent(projectUrl)}&source=fre-flier`;
+    // document.getElementById('project-share').style.display = '';
     
     // Close the description panel when switching projects;
     // hide the + entirely if the project has no description yet
