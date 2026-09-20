@@ -25,6 +25,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=58">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="no-scroll">
 
@@ -50,11 +51,11 @@
   <div class="project-description" id="project-description"></div>
 
   <!-- SHARE BUTTONS -->
-  <div class="project-share" id="project-share" style="display:none;">
+  <div class="project-share" id="project-share">
     <span class="share-label">Share</span>
-    <a id="share-twitter" href="#" target="_blank" rel="noopener noreferrer" title="Share on X">𝕏</a>
-    <a id="share-facebook" href="#" target="_blank" rel="noopener noreferrer" title="Share on Facebook">f</a>
-    <a id="share-linkedin" href="#" target="_blank" rel="noopener noreferrer" title="Share on LinkedIn">in</a>
+    <a id="share-whatsapp" href="#" target="_blank" rel="noopener noreferrer" title="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <a id="share-instagram" href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" title="Share on Instagram"><i class="fab fa-instagram"></i></a>
+    <a id="share-linkedin" href="#" target="_blank" rel="noopener noreferrer" title="Share on LinkedIn"><i class="fab fa-linkedin"></i></a>
   </div>
 
   <script src="js/projects.js?v=58"></script>
@@ -63,7 +64,7 @@
   <script>
     // Zoom on project photos with mouse wheel and pinch
     const photo = document.getElementById('project-photo');
-    if (photo) {
+    if (photo && typeof Panzoom !== 'undefined') {
       photo.style.cursor = 'grab';
       const pz = Panzoom(photo, {
         maxZoom: 4,

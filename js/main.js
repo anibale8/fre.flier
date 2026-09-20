@@ -430,7 +430,6 @@ function initProject() {
     return `
       <span class="table-cell">${p.code}</span>
       <span class="table-cell">${p.title}</span>
-      <span class="table-cell">${p.architect || '—'}</span>
       <span class="table-cell">${p.format}</span>
       <span class="table-cell">${p.location}</span>
       <span class="table-cell">${p.year}</span>`;
@@ -465,19 +464,18 @@ function initProject() {
     pIdx = (idx + projects.length) % projects.length;
     const p = projects[pIdx];
     const projectUrl = `${window.location.origin}/project.html?slug=${p.slug}`;
-    const shareText = `${p.title} by ${p.architect || 'fre.flier'} — Architecture & Photography`;
+    const shareText = `Check out ${p.title} on fre.flier`;
     
     document.title = `fre.flier — ${p.title}`;
     history.replaceState(null, '', `project.html?slug=${p.slug}${from ? `&from=${from}` : ''}`);
     if (!firstProject) track('/project/' + p.slug);
-    if (!firstProject && window.gtag) gtag('event', 'project_viewed', { project_name: p.title, architect: p.architect });
+    if (!firstProject && window.gtag) gtag('event', 'project_viewed', { project_name: p.title });
     firstProject = false;
     infoEl.innerHTML  = infoCells(p);
     introEl.innerHTML = infoCells(p);
     
     // Update share buttons
-    document.getElementById('share-twitter').href = `https://x.com/intent/post?url=${encodeURIComponent(projectUrl)}&text=${encodeURIComponent(shareText)}`;
-    document.getElementById('share-facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(projectUrl)}`;
+    document.getElementById('share-whatsapp').href = `https://wa.me/?text=${encodeURIComponent(shareText + ' ' + projectUrl)}`;
     document.getElementById('share-linkedin').href = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(projectUrl)}`;
     document.getElementById('project-share').style.display = '';
     
