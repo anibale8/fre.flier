@@ -591,6 +591,25 @@ body.intro-rise .project-info { opacity: 0; }
 .info-page a { text-decoration: underline; transition: color var(--transition); }
 .info-page a:hover { color: var(--gray); }
 
+/* Credit at the very bottom left of the About page (stays below the text on short screens) */
+body.info-body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+body.info-body main { flex: 1; }
+
+.site-credit {
+  padding: 24px var(--pad-x) 16px;
+  font-size: 11px;
+  color: #707070;
+}
+
+.site-credit a { text-decoration: underline; transition: color var(--transition); }
+.site-credit a:hover { color: var(--black); }
+
 /* Message when no project survives the active filters.
    Lives inside each view, so it shows below the column headers */
 .no-results {
