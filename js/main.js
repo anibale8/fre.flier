@@ -466,7 +466,12 @@ function initProject() {
     // const projectUrl = `${window.location.origin}/project.html?slug=${p.slug}`;
     // const shareText = `Check out ${p.title} on fre.flier`;
 
-    document.title = `fre.flier — ${p.title}`;
+    document.title = `${p.title}${p.architect ? ` (${p.architect})` : ''} — fre.flier · Alicia de Lucas Bautista`;
+    const resumen = p.description.replace(/\s+/g, ' ').trim();
+    const metaDesc = document.getElementById('meta-description');
+    if (metaDesc) metaDesc.setAttribute('content', resumen.length > 155 ? resumen.slice(0, 152).replace(/\s+\S*$/, '') + '…' : resumen);
+    const canonica = document.getElementById('canonical');
+    if (canonica) canonica.setAttribute('href', `https://freflier.com/project.html?slug=${p.slug}`);
     history.replaceState(null, '', `project.html?slug=${p.slug}${from ? `&from=${from}` : ''}`);
     if (!firstProject) track('/project/' + p.slug);
     if (!firstProject && window.gtag) gtag('event', 'project_viewed', { project_name: p.title });
