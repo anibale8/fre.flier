@@ -80,5 +80,32 @@ const projects = [
       { url: "projects/003_LES COLS_2025/05_LES COLS.webp", orient: "landscape" },
       { url: "projects/003_LES COLS_2025/06_LES COLS.webp", orient: "landscape" }
     ]
+  },
+  {
+    id: 4,
+    code: "004",
+    slug: "college-of-art-chandigarh",
+    title: "College of Art Chandigarh",
+    year: 2026,
+    location: "India",
+    architect: "Aditya Prakash, A. R. Prabhawalkar, Le Corbusier",
+    format: "Architecture",
+    coords: [30.7499, 76.789], // Jan Marg, Sector 10, Chandigarh
+    description: "Government College of Art, Chandigarh, India.",
+    cover: "projects/004_COLLEGE OF ART_2026/11_COLLEGE OF ART.webp",
+    thumb: "projects/004_COLLEGE OF ART_2026/11_COLLEGE OF ART_thumb.webp",
+    images: [
+      { url: "projects/004_COLLEGE OF ART_2026/01_COLLEGE OF ART.webp", orient: "landscape" },
+      { url: "projects/004_COLLEGE OF ART_2026/02_COLLEGE OF ART.webp", orient: "landscape" },
+      { url: "projects/004_COLLEGE OF ART_2026/03_COLLEGE OF ART.webp", orient: "landscape" },
+      { url: "projects/004_COLLEGE OF ART_2026/04_COLLEGE OF ART.webp", orient: "landscape" },
+      { url: "projects/004_COLLEGE OF ART_2026/05_COLLEGE OF ART.webp", orient: "landscape" },
+      { url: "projects/004_COLLEGE OF ART_2026/06_COLLEGE OF ART.webp", orient: "landscape" },
+      { url: "projects/004_COLLEGE OF ART_2026/07_COLLEGE OF ART.webp", orient: "portrait" },
+      { url: "projects/004_COLLEGE OF ART_2026/08_COLLEGE OF ART.webp", orient: "portrait" },
+      { url: "projects/004_COLLEGE OF ART_2026/09_COLLEGE OF ART.webp", orient: "landscape" },
+      { url: "projects/004_COLLEGE OF ART_2026/10_COLLEGE OF ART.webp", orient: "landscape" },
+      { url: "projects/004_COLLEGE OF ART_2026/11_COLLEGE OF ART.webp", orient: "portrait" }
+    ]
   }
 ];

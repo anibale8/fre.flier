@@ -467,6 +467,25 @@ body.intro-hold #project-photo {
   opacity: 0.35;
 }
 
+/* The whole page blurs with the photo: the footer bar drops its white band
+   (so the blur reaches the bottom edge) and the counter, + and ✕ fade out too */
+.project-footer { transition: background-color 0.6s ease; }
+
+.project-counter,
+.description-toggle,
+.project-close {
+  transition: filter 0.6s ease, opacity 0.6s ease, color var(--transition);
+}
+
+body.intro-hold .project-footer { background-color: transparent; }
+
+body.intro-hold .project-counter,
+body.intro-hold .description-toggle,
+body.intro-hold .project-close {
+  filter: blur(8px);
+  opacity: 0.25;
+}
+
 /* Every click on the page is disabled while the intro is on screen */
 body.intro-hold,
 body.intro-rise { pointer-events: none; }
