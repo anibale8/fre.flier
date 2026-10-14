@@ -2,6 +2,8 @@
 // PROJECTS
 // To add a new one, copy an object and paste it at the end.
 // Required fields: id, code, slug, title, year, location, format, cover, thumb, images[]
+// shortTitle (optional): name shown above the cover in the Image view on mobile,
+//   so long names fit on one line and the covers stay level
 // thumb: 112×112 square version of the cover, shown as the map marker
 // images[].orient: "landscape" | "portrait"
 // coords: [lat, lng] — where the project appears on the Map view
@@ -86,6 +88,7 @@ const projects = [
     code: "004",
     slug: "college-of-art-chandigarh",
     title: "College of Art Chandigarh",
+    shortTitle: "College of Art",
     year: 2026,
     location: "India",
     architect: "Aditya Prakash, A. R. Prabhawalkar, Le Corbusier",

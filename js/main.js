@@ -76,15 +76,15 @@ function initIndex() {
   bindViewToggle();
   bindFilterPanel();
 
-  // Deep links: index.html#image opens the image view, #filter opens the panel.
+  // Deep links: index.html#text opens the text view, #filter opens the panel.
   // The hash is dropped right away so any reload always lands on the
-  // Text view (the main view) with the filter panel closed.
-  if (window.location.hash === '#image') {
-    setView('images');
+  // Image view (the main view) with the filter panel closed.
+  if (window.location.hash === '#text') {
+    setView('table');
   } else if (window.location.hash === '#map') {
     setView('map');
   } else {
-    setView('table'); // Text view is the main/default view
+    setView('images'); // Image view is the main/default view
   }
   if (window.location.hash === '#filter') {
     document.getElementById('filter-panel').classList.add('open');
@@ -128,7 +128,9 @@ function initIndex() {
       item.dataset.location = p.location;
       item.dataset.format   = p.format;
       item.innerHTML = `
-        <div class="strip-item-label">${p.code} ${p.title}</div>
+        <div class="strip-item-label">${p.code} ${p.shortTitle
+          ? `<span class="label-full">${p.title}</span><span class="label-short">${p.shortTitle}</span>`
+          : p.title}</div>
         <div class="strip-item-img"><img src="${p.cover}" alt="${p.title}" loading="lazy"></div>`;
       strip.appendChild(item);
     });
@@ -408,7 +410,7 @@ function initProject() {
   let pIdx     = projects.findIndex(p => p.slug === slug);
 
   document.getElementById('project-close').href =
-    from === 'image' ? 'index.html#image' : 'index.html';
+    from === 'text' ? 'index.html#text' : 'index.html';
 
   if (pIdx === -1) {
     stage.innerHTML =

@@ -223,7 +223,7 @@ a, button {
 
 .clear-filters-panel:hover { color: var(--black); }
 
-/* ===== TEXT VIEW (table, main view) ===== */
+/* ===== TEXT VIEW (table) ===== */
 .projects-table {
   padding: 90px 0 48px;
 }
@@ -265,7 +265,7 @@ a, button {
   }
 }
 
-/* ===== IMAGE VIEW (grid: photos only, label on hover) ===== */
+/* ===== IMAGE VIEW (grid: photos only, label on hover; main view) ===== */
 .projects-strip {
   display: none;
   /* Photos start at the same height as the Text view */
@@ -302,6 +302,9 @@ a, button {
 
 .strip-item:hover .strip-item-label { opacity: 1; }
 
+/* shortTitle (projects.js) replaces the full name only on mobile */
+.strip-item-label .label-short { display: none; }
+
 /* Every cover shares the same portrait format (2:3, like 001) */
 .strip-item-img {
   width: 100%;
@@ -329,6 +332,8 @@ a, button {
     white-space: normal;
     padding-bottom: 4px;
   }
+  .strip-item-label .label-full  { display: none; }
+  .strip-item-label .label-short { display: inline; }
 }
 
 /* ===== PROJECT PAGE ===== */
