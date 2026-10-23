@@ -33,7 +33,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <link rel="stylesheet" href="css/style.css?v=61">
+  <link rel="stylesheet" href="css/style.css?v=62">
 </head>
 <body>
 
@@ -91,8 +91,31 @@
       <div class="no-results">No projects match the selected filters.</div>
     </div>
 
-    <!-- Image view (grid) — default -->
-    <div class="projects-strip active" id="projects-strip"></div>
+    <h1 class="sr-only">Alicia de Lucas Bautista · Architecture &amp; Photography</h1>
+
+    <!-- Image view (grid) — default. The covers between the fichas markers are written by
+         scripts/fichas.mjs so the page links to every project without JavaScript;
+         buildStrip() in js/main.js replaces them when the page loads. -->
+    <div class="projects-strip active" id="projects-strip">
+    <!-- fichas:start -->
+    <a class="strip-item" href="/project/ronchamp/?from=image" data-year="2026" data-location="France" data-format="Architecture">
+      <div class="strip-item-label">001 Ronchamp</div>
+      <div class="strip-item-img"><img src="projects/001_ronchamp/01_RONCHAMP.webp" alt="Ronchamp" loading="lazy"></div>
+    </a>
+    <a class="strip-item" href="/project/la-tourette/?from=image" data-year="2026" data-location="France" data-format="Architecture">
+      <div class="strip-item-label">002 La Tourette</div>
+      <div class="strip-item-img"><img src="projects/002_LA%20TOURETTE_2026/09_LA%20TOURETTE.webp" alt="La Tourette" loading="lazy"></div>
+    </a>
+    <a class="strip-item" href="/project/les-cols/?from=image" data-year="2025" data-location="Spain" data-format="Architecture">
+      <div class="strip-item-label">003 Les Cols</div>
+      <div class="strip-item-img"><img src="projects/003_LES%20COLS_2025/01_LES%20COLS.webp" alt="Les Cols" loading="lazy"></div>
+    </a>
+    <a class="strip-item" href="/project/college-of-art-chandigarh/?from=image" data-year="2026" data-location="India" data-format="Architecture">
+      <div class="strip-item-label">004 <span class="label-full">College of Art Chandigarh</span><span class="label-short">College of Art</span></div>
+      <div class="strip-item-img"><img src="projects/004_COLLEGE%20OF%20ART_2026/11_COLLEGE%20OF%20ART.webp" alt="College of Art Chandigarh" loading="lazy"></div>
+    </a>
+    <!-- fichas:end -->
+    </div>
 
     <!-- Map view -->
     <div class="projects-map" id="projects-map">
@@ -114,8 +137,8 @@
     </div>
   </div>
 
-  <script src="js/projects.js?v=60"></script>
-  <script src="js/main.js?v=61"></script>
+  <script src="js/projects.js?v=61"></script>
+  <script src="js/main.js?v=65"></script>
   <script data-goatcounter="https://anibale88.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

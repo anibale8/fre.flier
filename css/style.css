@@ -253,6 +253,26 @@ a, button {
   text-overflow: ellipsis;
 }
 
+/* The project name in a project page's top line is its H1: same look as the other cells */
+h1.table-cell {
+  margin: 0;
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+/* Read by search engines and screen readers, not shown */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 @media (max-width: 640px) {
   .projects-table { padding-top: 70px; }
   /* Smaller type so all five columns read clearly on a phone */

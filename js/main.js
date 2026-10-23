@@ -13,11 +13,19 @@ const initialHash = window.location.hash; // initIndex drops the hash before the
 
 window.goatcounter = {
   path: () => {
-    const slug = new URLSearchParams(window.location.search).get('slug');
+    const slug = projectSlugFromUrl();
     if (isProjectPage && slug) return '/project/' + slug;
     return window.location.pathname.replace(/index\.html$/, '') + initialHash;
   }
 };
+
+/* Each project has its own page at /project/<slug>/ (scripts/fichas.mjs);
+   the old project.html?slug=<slug> still works and redirects there */
+function projectSlugFromUrl() {
+  const fromPath = window.location.pathname.match(/\/project\/([^/]+)/);
+  return fromPath ? decodeURIComponent(fromPath[1]) : new URLSearchParams(window.location.search).get('slug');
+}
+const projectHref = (p, from) => `/project/${p.slug}/${from ? `?from=${from}` : ''}`;
 
 function track(path) {
   if (window.goatcounter.count) window.goatcounter.count({ path });
@@ -102,7 +110,7 @@ function initIndex() {
     projects.forEach(p => {
       const row = document.createElement('a');
       row.className = 'table-row';
-      row.href      = `project.html?slug=${p.slug}&from=text`;
+      row.href      = projectHref(p, 'text');
       row.dataset.year     = p.year;
       row.dataset.location = p.location;
       row.dataset.format   = p.format;
@@ -123,7 +131,7 @@ function initIndex() {
     projects.forEach(p => {
       const item = document.createElement('a');
       item.className = 'strip-item';
-      item.href      = `project.html?slug=${p.slug}&from=image`;
+      item.href      = projectHref(p, 'image');
       item.dataset.year     = p.year;
       item.dataset.location = p.location;
       item.dataset.format   = p.format;
@@ -404,17 +412,17 @@ function initIndex() {
 
 function initProject() {
   const params = new URLSearchParams(window.location.search);
-  const slug   = params.get('slug');
+  const slug   = projectSlugFromUrl();
   const from   = params.get('from'); // "image" | "text" — where the ✕ goes back to
   const stage  = document.getElementById('project-stage');
   let pIdx     = projects.findIndex(p => p.slug === slug);
 
   document.getElementById('project-close').href =
-    from === 'text' ? 'index.html#text' : 'index.html';
+    from === 'text' ? '/#text' : '/';
 
   if (pIdx === -1) {
     stage.innerHTML =
-      '<p style="padding:24px 14px;color:#8a8a8a">Project not found. <a href="index.html" style="text-decoration:underline">Back to index</a></p>';
+      '<p style="padding:24px 14px;color:#8a8a8a">Project not found. <a href="/" style="text-decoration:underline">Back to index</a></p>';
     return;
   }
 
@@ -428,10 +436,13 @@ function initProject() {
   let introT1 = null, introT2 = null;
   let firstProject = true; // the first project is already counted as the page load itself
 
-  function infoCells(p) {
+  // In the top line the project name is the page's H1 (same look as the other cells);
+  // the intro copy above the photo keeps a plain span so there's only one H1
+  function infoCells(p, asHeading) {
+    const tag = asHeading ? 'h1' : 'span';
     return `
       <span class="table-cell">${p.code}</span>
-      <span class="table-cell">${p.title}</span>
+      <${tag} class="table-cell">${p.title}</${tag}>
       <span class="table-cell">${p.format}</span>
       <span class="table-cell">${p.location}</span>
       <span class="table-cell">${p.year}</span>`;
@@ -472,14 +483,20 @@ function initProject() {
     const resumen = p.description.replace(/\s+/g, ' ').trim();
     const metaDesc = document.getElementById('meta-description');
     if (metaDesc) metaDesc.setAttribute('content', resumen.length > 155 ? resumen.slice(0, 152).replace(/\s+\S*$/, '') + '…' : resumen);
-    const canonica = document.getElementById('canonical');
-    if (canonica) canonica.setAttribute('href', `https://freflier.com/project.html?slug=${p.slug}`);
-    history.replaceState(null, '', `project.html?slug=${p.slug}${from ? `&from=${from}` : ''}`);
+    let canonica = document.getElementById('canonical');
+    if (!canonica) {
+      canonica = document.createElement('link');
+      canonica.rel = 'canonical';
+      canonica.id = 'canonical';
+      document.head.appendChild(canonica);
+    }
+    canonica.setAttribute('href', `https://freflier.com/project/${p.slug}/`);
+    history.replaceState(null, '', projectHref(p, from));
     if (!firstProject) track('/project/' + p.slug);
     if (!firstProject && window.gtag) gtag('event', 'project_viewed', { project_name: p.title });
     firstProject = false;
-    infoEl.innerHTML  = infoCells(p);
-    introEl.innerHTML = infoCells(p);
+    infoEl.innerHTML  = infoCells(p, true);
+    introEl.innerHTML = infoCells(p, false);
     
     // Update share buttons
     // document.getElementById('share-whatsapp').href = `https://wa.me/?text=${encodeURIComponent(shareText + ' ' + projectUrl)}`;
