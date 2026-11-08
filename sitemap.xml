@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://freflier.com/</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-11-08</lastmod>
   </url>
   <url>
     <loc>https://freflier.com/about.html</loc>
@@ -57,5 +57,36 @@
     <image:image><image:loc>https://freflier.com/projects/004_COLLEGE%20OF%20ART_2026/09_COLLEGE%20OF%20ART.webp</image:loc></image:image>
     <image:image><image:loc>https://freflier.com/projects/004_COLLEGE%20OF%20ART_2026/10_COLLEGE%20OF%20ART.webp</image:loc></image:image>
     <image:image><image:loc>https://freflier.com/projects/004_COLLEGE%20OF%20ART_2026/11_COLLEGE%20OF%20ART.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://freflier.com/project/indian-train/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <image:image><image:loc>https://freflier.com/projects/005_INDIAN%20TRAIN_2026/01_INDIAN%20TRAIN.webp</image:loc></image:image>
+    <image:image><image:loc>https://freflier.com/projects/005_INDIAN%20TRAIN_2026/01_ZOOM_INDIAN%20TRAIN.webp</image:loc></image:image>
+    <image:image><image:loc>https://freflier.com/projects/005_INDIAN%20TRAIN_2026/01A_INDIAN%20TRAIN.webp</image:loc></image:image>
+    <image:image><image:loc>https://freflier.com/projects/005_INDIAN%20TRAIN_2026/01A_ZOOM_INDIAN%20TRAIN.webp</image:loc></image:image>
+    <image:image><image:loc>https://freflier.com/projects/005_INDIAN%20TRAIN_2026/01B_INDIAN%20TRAIN.webp</image:loc></image:image>
+    <image:image><image:loc>https://freflier.com/projects/005_INDIAN%20TRAIN_2026/01B_ZOOM_INDIAN%20TRAIN.webp</image:loc></image:image>
+    <image:image><image:loc>https://freflier.com/projects/005_INDIAN%20TRAIN_2026/02_INDIAN%20TRAIN.webp</image:loc></image:image>
+    <image:image><image:loc>https://freflier.com/projects/005_INDIAN%20TRAIN_2026/02_ZOOM_INDIAN%20TRAIN.webp</image:loc></image:image>
+    <image:image><image:loc>https://freflier.com/projects/005_INDIAN%20TRAIN_2026/02A_INDIAN%20TRAIN.webp</image:loc></image:image>
+    <image:image><image:loc>https://freflier.com/projects/005_INDIAN%20TRAIN_2026/02A_ZOOM_INDIAN%20TRAIN.webp</image:loc></image:image>
+    <image:image><image:loc>https://freflier.com/projects/005_INDIAN%20TRAIN_2026/02B_INDIAN%20TRAIN.webp</image:loc></image:image>
+    <image:image><image:loc>https://freflier.com/projects/005_INDIAN%20TRAIN_2026/02B_ZOOM_INDIAN%20TRAIN.webp</image:loc></image:image>
+    <image:image><image:loc>https://freflier.com/projects/005_INDIAN%20TRAIN_2026/02C_INDIAN%20TRAIN.webp</image:loc></image:image>
+    <image:image><image:loc>https://freflier.com/projects/005_INDIAN%20TRAIN_2026/02C_ZOOM_INDIAN%20TRAIN.webp</image:loc></image:image>
+    <image:image><image:loc>https://freflier.com/projects/005_INDIAN%20TRAIN_2026/03_INDIAN%20TRAIN.webp</image:loc></image:image>
+    <image:image><image:loc>https://freflier.com/projects/005_INDIAN%20TRAIN_2026/03_ZOOM_INDIAN%20TRAIN.webp</image:loc></image:image>
+    <image:image><image:loc>https://freflier.com/projects/005_INDIAN%20TRAIN_2026/04_INDIAN%20TRAIN.webp</image:loc></image:image>
+    <image:image><image:loc>https://freflier.com/projects/005_INDIAN%20TRAIN_2026/04_ZOOM_INDIAN%20TRAIN.webp</image:loc></image:image>
+    <image:image><image:loc>https://freflier.com/projects/005_INDIAN%20TRAIN_2026/05_INDIAN%20TRAIN.webp</image:loc></image:image>
+    <image:image><image:loc>https://freflier.com/projects/005_INDIAN%20TRAIN_2026/05_ZOOM_INDIAN%20TRAIN.webp</image:loc></image:image>
+    <image:image><image:loc>https://freflier.com/projects/005_INDIAN%20TRAIN_2026/06_INDIAN%20TRAIN.webp</image:loc></image:image>
+    <image:image><image:loc>https://freflier.com/projects/005_INDIAN%20TRAIN_2026/06_ZOOM_INDIAN%20TRAIN.webp</image:loc></image:image>
+    <image:image><image:loc>https://freflier.com/projects/005_INDIAN%20TRAIN_2026/08_INDIAN%20TRAIN.webp</image:loc></image:image>
+    <image:image><image:loc>https://freflier.com/projects/005_INDIAN%20TRAIN_2026/08_ZOOM_INDIAN%20TRAIN.webp</image:loc></image:image>
+    <image:image><image:loc>https://freflier.com/projects/005_INDIAN%20TRAIN_2026/10A_INDIAN%20TRAIN.webp</image:loc></image:image>
+    <image:image><image:loc>https://freflier.com/projects/005_INDIAN%20TRAIN_2026/10A_ZOOM_INDIAN%20TRAIN.webp</image:loc></image:image>
+    <image:image><image:loc>https://freflier.com/projects/005_INDIAN%20TRAIN_2026/COMPOSICION_INDIAN%20TRAIN.webp</image:loc></image:image>
   </url>
 </urlset>

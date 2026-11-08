@@ -110,5 +110,47 @@ const projects = [
       { url: "projects/004_COLLEGE OF ART_2026/10_COLLEGE OF ART.webp", orient: "landscape" },
       { url: "projects/004_COLLEGE OF ART_2026/11_COLLEGE OF ART.webp", orient: "portrait" }
     ]
+  },
+  {
+    id: 5,
+    code: "005",
+    slug: "indian-train",
+    title: "Indian Train",
+    year: 2026,
+    location: "India",
+    format: "Architecture",
+    coords: [27.158, 77.991], // Agra Cantt station, Agra
+    description: "A sequence taken during an eight-hour train journey from Chandigarh to Agra.\n\nIndian Train, Chandigarh to Agra, India.",
+    cover: "projects/005_INDIAN TRAIN_2026/portada_01_ZOOM_INDIAN TRAIN.webp",
+    thumb: "projects/005_INDIAN TRAIN_2026/portada_01_ZOOM_INDIAN TRAIN_thumb.webp",
+    images: [
+      { url: "projects/005_INDIAN TRAIN_2026/01_INDIAN TRAIN.webp", orient: "landscape" },
+      { url: "projects/005_INDIAN TRAIN_2026/01_ZOOM_INDIAN TRAIN.webp", orient: "landscape" },
+      { url: "projects/005_INDIAN TRAIN_2026/01A_INDIAN TRAIN.webp", orient: "landscape" },
+      { url: "projects/005_INDIAN TRAIN_2026/01A_ZOOM_INDIAN TRAIN.webp", orient: "landscape" },
+      { url: "projects/005_INDIAN TRAIN_2026/01B_INDIAN TRAIN.webp", orient: "landscape" },
+      { url: "projects/005_INDIAN TRAIN_2026/01B_ZOOM_INDIAN TRAIN.webp", orient: "landscape" },
+      { url: "projects/005_INDIAN TRAIN_2026/02_INDIAN TRAIN.webp", orient: "landscape" },
+      { url: "projects/005_INDIAN TRAIN_2026/02_ZOOM_INDIAN TRAIN.webp", orient: "landscape" },
+      { url: "projects/005_INDIAN TRAIN_2026/02A_INDIAN TRAIN.webp", orient: "landscape" },
+      { url: "projects/005_INDIAN TRAIN_2026/02A_ZOOM_INDIAN TRAIN.webp", orient: "landscape" },
+      { url: "projects/005_INDIAN TRAIN_2026/02B_INDIAN TRAIN.webp", orient: "landscape" },
+      { url: "projects/005_INDIAN TRAIN_2026/02B_ZOOM_INDIAN TRAIN.webp", orient: "landscape" },
+      { url: "projects/005_INDIAN TRAIN_2026/02C_INDIAN TRAIN.webp", orient: "landscape" },
+      { url: "projects/005_INDIAN TRAIN_2026/02C_ZOOM_INDIAN TRAIN.webp", orient: "landscape" },
+      { url: "projects/005_INDIAN TRAIN_2026/03_INDIAN TRAIN.webp", orient: "landscape" },
+      { url: "projects/005_INDIAN TRAIN_2026/03_ZOOM_INDIAN TRAIN.webp", orient: "landscape" },
+      { url: "projects/005_INDIAN TRAIN_2026/04_INDIAN TRAIN.webp", orient: "landscape" },
+      { url: "projects/005_INDIAN TRAIN_2026/04_ZOOM_INDIAN TRAIN.webp", orient: "landscape" },
+      { url: "projects/005_INDIAN TRAIN_2026/05_INDIAN TRAIN.webp", orient: "landscape" },
+      { url: "projects/005_INDIAN TRAIN_2026/05_ZOOM_INDIAN TRAIN.webp", orient: "landscape" },
+      { url: "projects/005_INDIAN TRAIN_2026/06_INDIAN TRAIN.webp", orient: "landscape" },
+      { url: "projects/005_INDIAN TRAIN_2026/06_ZOOM_INDIAN TRAIN.webp", orient: "landscape" },
+      { url: "projects/005_INDIAN TRAIN_2026/08_INDIAN TRAIN.webp", orient: "landscape" },
+      { url: "projects/005_INDIAN TRAIN_2026/08_ZOOM_INDIAN TRAIN.webp", orient: "landscape" },
+      { url: "projects/005_INDIAN TRAIN_2026/10A_INDIAN TRAIN.webp", orient: "landscape" },
+      { url: "projects/005_INDIAN TRAIN_2026/10A_ZOOM_INDIAN TRAIN.webp", orient: "landscape" },
+      { url: "projects/005_INDIAN TRAIN_2026/COMPOSICION_INDIAN TRAIN.webp", orient: "landscape" }
+    ]
   }
 ];
