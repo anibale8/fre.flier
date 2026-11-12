@@ -5,20 +5,6 @@
 const isProjectPage = document.getElementById('project-stage') !== null;
 const isIndexPage   = document.getElementById('projects-table') !== null;
 
-/* ── GoatCounter ──
-   The site is three HTML files, so the paths shown in the analytics
-   panel are built by hand: /project/<slug> for each project and
-   /#image, /#text, /#map for the index views (see track() calls). */
-const initialHash = window.location.hash; // initIndex drops the hash before the counter may read it
-
-window.goatcounter = {
-  path: () => {
-    const slug = projectSlugFromUrl();
-    if (isProjectPage && slug) return '/project/' + slug;
-    return window.location.pathname.replace(/index\.html$/, '') + initialHash;
-  }
-};
-
 /* Each project has its own page at /project/<slug>/ (scripts/fichas.mjs);
    the old project.html?slug=<slug> still works and redirects there */
 function projectSlugFromUrl() {
@@ -26,10 +12,6 @@ function projectSlugFromUrl() {
   return fromPath ? decodeURIComponent(fromPath[1]) : new URLSearchParams(window.location.search).get('slug');
 }
 const projectHref = (p, from) => `/project/${p.slug}/${from ? `?from=${from}` : ''}`;
-
-function track(path) {
-  if (window.goatcounter.count) window.goatcounter.count({ path });
-}
 
 document.addEventListener('DOMContentLoaded', () => {
   bindNavDropdown();
@@ -148,9 +130,9 @@ function initIndex() {
 
   /* ── View toggle ────────────────────────── */
   function bindViewToggle() {
-    document.getElementById('btn-images').addEventListener('click', () => { setView('images'); track('/#image'); if (window.gtag) gtag('event', 'view_changed', { view: 'gallery' }); });
-    document.getElementById('btn-table').addEventListener('click',  () => { setView('table');  track('/#text'); if (window.gtag) gtag('event', 'view_changed', { view: 'table' }); });
-    document.getElementById('btn-map').addEventListener('click',    () => { setView('map');    track('/#map'); if (window.gtag) gtag('event', 'view_changed', { view: 'map' }); });
+    document.getElementById('btn-images').addEventListener('click', () => { setView('images'); if (window.gtag) gtag('event', 'view_changed', { view: 'gallery' }); });
+    document.getElementById('btn-table').addEventListener('click',  () => { setView('table');  if (window.gtag) gtag('event', 'view_changed', { view: 'table' }); });
+    document.getElementById('btn-map').addEventListener('click',    () => { setView('map');    if (window.gtag) gtag('event', 'view_changed', { view: 'map' }); });
     // Clicking "Projects" also clears and closes the filter
     const projLabel = document.querySelector('.nav-projects .nav-label');
     if (projLabel) projLabel.addEventListener('click', closeFilterIfOpen);
@@ -264,7 +246,6 @@ function initIndex() {
   /* Project window over the map: browse the photos, close, keep navigating */
   function openMapProject(p) {
     mapProject = p;
-    track('/project/' + p.slug);
     document.getElementById('map-modal-info').innerHTML = `
       <span>${p.code}</span>
       <span>${p.title}</span>`;
@@ -492,7 +473,6 @@ function initProject() {
     }
     canonica.setAttribute('href', `https://freflier.com/project/${p.slug}/`);
     history.replaceState(null, '', projectHref(p, from));
-    if (!firstProject) track('/project/' + p.slug);
     if (!firstProject && window.gtag) gtag('event', 'project_viewed', { project_name: p.title });
     firstProject = false;
     infoEl.innerHTML  = infoCells(p, true);
